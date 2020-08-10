@@ -138,6 +138,7 @@ public class ServletWebServerApplicationContext extends GenericWebApplicationCon
 	@Override
 	public final void refresh() throws BeansException, IllegalStateException {
 		try {
+			//todo tomcat启动 step:4
 			super.refresh();
 		}
 		catch (RuntimeException ex) {
@@ -157,8 +158,10 @@ public class ServletWebServerApplicationContext extends GenericWebApplicationCon
 		}
 	}
 
+	//todo tomcat启动入口
 	@Override
 	protected void finishRefresh() {
+		//todo tomcat启动 step:5
 		super.finishRefresh();
 		WebServer webServer = startWebServer();
 		if (webServer != null) {

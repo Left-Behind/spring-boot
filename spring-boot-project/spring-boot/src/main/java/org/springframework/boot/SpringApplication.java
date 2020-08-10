@@ -309,6 +309,7 @@ public class SpringApplication {
 			exceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,
 					new Class[] { ConfigurableApplicationContext.class }, context);
 			prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+			//todo tomcat启动 step:1
 			refreshContext(context);
 			afterRefresh(context, applicationArguments);
 			stopWatch.stop();
@@ -388,6 +389,7 @@ public class SpringApplication {
 	}
 
 	private void refreshContext(ConfigurableApplicationContext context) {
+		//todo tomcat启动 step:2
 		refresh(context);
 		if (this.registerShutdownHook) {
 			try {
@@ -741,6 +743,7 @@ public class SpringApplication {
 	 */
 	protected void refresh(ApplicationContext applicationContext) {
 		Assert.isInstanceOf(AbstractApplicationContext.class, applicationContext);
+		//todo tomcat启动 step:3
 		((AbstractApplicationContext) applicationContext).refresh();
 	}
 
